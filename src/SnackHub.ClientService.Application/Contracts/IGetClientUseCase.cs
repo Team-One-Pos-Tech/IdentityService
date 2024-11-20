@@ -2,11 +2,10 @@
 using System.Threading.Tasks;
 using SnackHub.ClientService.Application.Models;
 
-namespace SnackHub.ClientService.Application.Contracts
+namespace SnackHub.ClientService.Application.Contracts;
+
+public interface IGetClientUseCase
 {
-    public interface IGetClientUseCase
-    {
-        Task<GetClientResponse?> Execute(Guid id);
-        Task<GetClientResponse?> Execute(string cpf);
-    }
+    Task<GetClientResponse?> Execute(Guid id);
+    Task<GetClientResponse?> Execute(string cpf);
 }

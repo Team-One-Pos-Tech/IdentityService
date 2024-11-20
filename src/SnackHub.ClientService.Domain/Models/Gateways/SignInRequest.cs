@@ -2,7 +2,6 @@ namespace SnackHub.ClientService.Domain.Models.Gateways;
 
 public record SignInRequest
 {
-
     public SignInRequest(string cpf, string password)
     {
         Username = cpf;

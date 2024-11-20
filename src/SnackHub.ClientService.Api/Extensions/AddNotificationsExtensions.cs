@@ -6,12 +6,10 @@ namespace SnackHub.ClientService.Api.Extensions;
 
 public static class AddNotificationsExtensions
 {
-    public static ModelStateDictionary AddNotifications(this ModelStateDictionary modelState, IEnumerable<Notification> notifications)
+    public static ModelStateDictionary AddNotifications(this ModelStateDictionary modelState,
+        IEnumerable<Notification> notifications)
     {
-        foreach (var item in notifications)
-        {
-            modelState.AddModelError(item.Key, item.Message);
-        }
+        foreach (var item in notifications) modelState.AddModelError(item.Key, item.Message);
 
         return modelState;
     }

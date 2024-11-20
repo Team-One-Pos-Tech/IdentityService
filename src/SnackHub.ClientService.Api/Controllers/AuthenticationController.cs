@@ -9,7 +9,7 @@ using SnackHub.ClientService.Domain.Models.Gateways;
 namespace SnackHub.ClientService.Api.Controllers;
 
 /// <summary>
-/// Handles user authentication.
+///     Handles user authentication.
 /// </summary>
 [Route("api/[controller]")]
 [ApiController]
@@ -20,11 +20,12 @@ public class AuthenticationController(
     private const string DefaultUsersPassword = "Default-password-99!";
 
     /// <summary>
-    /// Registers a new user
+    ///     Registers a new user
     /// </summary>
     /// <param name="user"></param>
     /// <returns>Action result indicating the outcome of the registration.</returns>
-    [HttpPost, Route("signup")]
+    [HttpPost]
+    [Route("signup")]
     public async Task<IActionResult> SignUp([FromBody] RegisterClientRequest user)
     {
         var signUpRequest = new SignUpRequest(
@@ -35,21 +36,19 @@ public class AuthenticationController(
         );
 
         var response = await signUpUseCase.Execute(signUpRequest);
-        
-        if (!response.IsValid) 
-        {
-            return ValidationProblem(ModelState.AddNotifications(response.Notifications));
-        }
+
+        if (!response.IsValid) return ValidationProblem(ModelState.AddNotifications(response.Notifications));
 
         return Ok(response);
     }
 
     /// <summary>
-    /// Authenticates a user
+    ///     Authenticates a user
     /// </summary>
     /// <param name="user">To sign in as an Anonymous User the CPF value should be empty</param>
     /// <returns>Action result indicating the outcome of the authentication</returns>
-    [HttpPost, Route("signin")]
+    [HttpPost]
+    [Route("signin")]
     public async Task<IActionResult> SignIn([FromBody] LoginModel user)
     {
         var signInRequest = new SignInRequest(user.Cpf, DefaultUsersPassword);

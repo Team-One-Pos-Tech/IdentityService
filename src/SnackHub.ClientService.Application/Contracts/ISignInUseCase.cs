@@ -2,10 +2,9 @@
 using SnackHub.ClientService.Application.Models;
 using SnackHub.ClientService.Domain.Models.Gateways;
 
-namespace SnackHub.ClientService.Application.Contracts
+namespace SnackHub.ClientService.Application.Contracts;
+
+public interface ISignInUseCase
 {
-    public interface ISignInUseCase
-    {
-        Task<SignInResponse> Execute(SignInRequest request);
-    }
+    Task<SignInResponse> Execute(SignInRequest request);
 }

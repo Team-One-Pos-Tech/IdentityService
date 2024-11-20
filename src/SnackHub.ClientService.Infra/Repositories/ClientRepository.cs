@@ -8,23 +8,23 @@ using SnackHub.ClientService.Infra.Repositories.Context;
 
 namespace SnackHub.ClientService.Infra.Repositories;
 
-public class ClientRepository : BaseRepository<Client, ClientDbContext>, IClientRepository
+public class ClientRepository : BaseRepository<ClientModel, ClientDbContext>, IClientRepository
 {
-    protected ClientRepository(ClientDbContext dbContext, ILoggerFactory loggerFactory) : base(dbContext, loggerFactory)
+    public ClientRepository(ClientDbContext dbContext, ILoggerFactory loggerFactory) : base(dbContext, loggerFactory)
     {
     }
 
-    public async Task AddAsync(Client client)
+    public async Task AddAsync(ClientModel client)
     {
         await InsertAsync(client);
     }
 
-    public async Task<Client?> GetClientByIdAsync(Guid id)
+    public async Task<ClientModel?> GetClientByIdAsync(Guid id)
     {
         return await FindByPredicateAsync(px => px.Id.Equals(id));
     }
 
-    public async Task<Client?> GetClientByCpfAsync(Cpf cpf)
+    public async Task<ClientModel?> GetClientByCpfAsync(Cpf cpf)
     {
         return await FindByPredicateAsync(px => px.Cpf.Equals(cpf));
     }

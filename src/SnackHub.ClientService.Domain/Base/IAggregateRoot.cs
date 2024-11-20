@@ -1,9 +1,7 @@
-﻿namespace SnackHub.ClientService.Domain.Base
-{
+﻿namespace SnackHub.ClientService.Domain.Base;
 
-    // How do work with IAggregateRoot from DDD?
-    // IAggregateRoot is a marker interface that is used to identify aggregate roots.
-    public interface IAggregateRoot
-    {
-    }
+// How do work with IAggregateRoot from DDD?
+// IAggregateRoot is a marker interface that is used to identify aggregate roots.
+public interface IAggregateRoot
+{
 }

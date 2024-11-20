@@ -2,10 +2,9 @@
 using SnackHub.ClientService.Application.Models;
 using SnackHub.ClientService.Domain.Models.Gateways;
 
-namespace SnackHub.ClientService.Application.Contracts
+namespace SnackHub.ClientService.Application.Contracts;
+
+public interface ISignUpUseCase
 {
-    public interface ISignUpUseCase
-    {
-        Task<RegisterClientResponse> Execute(SignUpRequest request);
-    }
+    Task<RegisterClientResponse> Execute(SignUpRequest request);
 }

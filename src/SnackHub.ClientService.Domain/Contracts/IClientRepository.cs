@@ -3,13 +3,12 @@ using System.Threading.Tasks;
 using SnackHub.ClientService.Domain.Entities;
 using SnackHub.ClientService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Domain.Contracts
-{
-    public interface IClientRepository
-    {
-        Task AddAsync(Client client);
+namespace SnackHub.ClientService.Domain.Contracts;
 
-        Task<Client?> GetClientByIdAsync(Guid id);
-        Task<Client?> GetClientByCpfAsync(Cpf cpf);
-    }
+public interface IClientRepository
+{
+    Task AddAsync(ClientModel client);
+
+    Task<ClientModel?> GetClientByIdAsync(Guid id);
+    Task<ClientModel?> GetClientByCpfAsync(Cpf cpf);
 }

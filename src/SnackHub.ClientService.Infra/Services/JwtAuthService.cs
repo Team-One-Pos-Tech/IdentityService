@@ -11,21 +11,22 @@ using SnackHub.ClientService.Domain.Models.Gateways;
 
 namespace SnackHub.ClientService.Infra.Services;
 
-public class JwtAuthService(IConfiguration configuration): IAuthService
+public class JwtAuthService(IConfiguration configuration) : IAuthService
 {
     public Task<AuthResponseType> Execute(SignInRequest request)
     {
         var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Auth:Key"] ??
-                throw new ApplicationException("JWT key is not configured.")));
+                                                                        throw new ApplicationException(
+                                                                            "JWT key is not configured.")));
         var issuer = configuration["Auth:Issuer"];
         var audience = configuration["Auth:Audience"];
-                        
+
         var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
         var tokeOptions = new JwtSecurityToken(
-            issuer : issuer,
-            audience: audience,
-            claims: new List<Claim>(),
+            issuer,
+            audience,
+            new List<Claim>(),
             expires: DateTime.Now.AddMinutes(2),
             signingCredentials: signinCredentials);
 

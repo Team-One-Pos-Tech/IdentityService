@@ -7,13 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Flunt" Version="2.0.5" />
-        <PackageReference Include="MassTransit" Version="8.3.0" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+        <PackageReference Include="Flunt" Version="2.0.5"/>
+        <PackageReference Include="MassTransit" Version="8.3.0"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1"/>
     </ItemGroup>
-    
+
     <ItemGroup>
-      <ProjectReference Include="..\SnackHub.ClientService.Domain\SnackHub.ClientService.Domain.csproj" />
+        <ProjectReference Include="..\SnackHub.ClientService.Domain\SnackHub.ClientService.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

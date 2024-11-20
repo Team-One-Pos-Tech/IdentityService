@@ -23,7 +23,8 @@ public class Program
             .AddRepositories()
             .AddMassTransit(builder.Configuration)
             .AddUseCases()
-            .AddServices();
+            .AddServices()
+            .AddValidators();
 
         var app = builder.Build();
 

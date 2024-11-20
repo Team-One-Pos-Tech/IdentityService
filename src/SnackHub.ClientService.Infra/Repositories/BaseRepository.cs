@@ -54,12 +54,6 @@ public class BaseRepository<TModel, TDbContext> : IBaseRepository<TModel>
         await CompleteAsync();
     }
 
-    public async Task<int> CountAsync(Expression<Func<TModel, bool>> predicate)
-    {
-        return await _dbSet
-            .CountAsync(predicate);
-    }
-
     public async Task<IEnumerable<TModel>> ListByPredicateAsync(Expression<Func<TModel, bool>> predicate)
     {
         return await _dbSet
@@ -100,6 +94,12 @@ public class BaseRepository<TModel, TDbContext> : IBaseRepository<TModel>
         if (count % pageSize != 0) totalPages++;
 
         return (pageNumber, pageSize, totalPages, elements);
+    }
+
+    public async Task<int> CountAsync(Expression<Func<TModel, bool>> predicate)
+    {
+        return await _dbSet
+            .CountAsync(predicate);
     }
 
     private async Task CompleteAsync()

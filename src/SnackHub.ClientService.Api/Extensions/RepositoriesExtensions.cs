@@ -14,18 +14,19 @@ public static class RepositoriesExtensions
     {
         serviceCollection
             .AddScoped<IClientRepository, ClientRepository>();
-        
+
         return serviceCollection;
     }
 
     public static IServiceCollection AddDatabaseContext(this IServiceCollection serviceCollection,
         IConfiguration configuration)
     {
-        var settings = configuration.GetSection("PostgreSQL").Get<PostgreSQLSettings>();
-        var connectionString = $"Host={settings.Host};Username={settings.UserName};Password={settings.Password};Database={settings.Database}";
-        
+        var settings = configuration.GetSection("Storage:PostgreSQL").Get<PostgreSQLSettings>();
+        var connectionString =
+            $"Host={settings.Host};Username={settings.UserName};Password={settings.Password};Database={settings.Database}";
+
         serviceCollection
-            .AddDbContext<ClientDbContext>(options => 
+            .AddDbContext<ClientDbContext>(options =>
                 options.UseNpgsql(connectionString));
 
         return serviceCollection;

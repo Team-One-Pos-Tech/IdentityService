@@ -24,7 +24,7 @@ public class RegisterClientUseCase(
 
         var client = CreateClient(registerClientRequest);
 
-        await clientRepository.AddAsync(client);
+        await clientRepository.AddAsync(client.ToDatabaseModel());
 
         response.Id = client.Id;
 
