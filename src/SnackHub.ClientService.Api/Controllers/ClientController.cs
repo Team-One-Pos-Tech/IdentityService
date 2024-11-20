@@ -9,7 +9,6 @@ namespace SnackHub.ClientService.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]/v1")]
-[Authorize]
 public class ClientController : ControllerBase
 {
     private readonly IGetClientUseCase _getClientUseCase;
