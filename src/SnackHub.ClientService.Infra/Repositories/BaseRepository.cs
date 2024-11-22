@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using SnackHub.ClientService.Infra.Extensions;
 using SnackHub.ClientService.Infra.Repositories.Abstractions;
 
@@ -16,14 +15,11 @@ public class BaseRepository<TModel, TDbContext> : IBaseRepository<TModel>
 {
     private readonly TDbContext _dbContext;
     private readonly DbSet<TModel> _dbSet;
-    private readonly ILogger _logger;
 
-    protected HashSet<string> _expandProperties = new();
+    protected HashSet<string> _expandProperties = [];
 
-    protected BaseRepository(TDbContext dbContext, ILoggerFactory loggerFactory)
+    protected BaseRepository(TDbContext dbContext)
     {
-        _logger = loggerFactory.CreateLogger<BaseRepository<TModel, TDbContext>>();
-
         _dbContext = dbContext;
         _dbSet = _dbContext.Set<TModel>();
     }
@@ -105,7 +101,6 @@ public class BaseRepository<TModel, TDbContext> : IBaseRepository<TModel>
     private async Task CompleteAsync()
     {
         //TODO: Move it to a better context {UnitOfWork or Transactions based}
-        _logger.LogInformation("Storing context data!");
         await _dbContext.SaveChangesAsync();
     }
 }

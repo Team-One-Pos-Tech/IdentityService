@@ -19,4 +19,8 @@
         <ProjectReference Include="..\SnackHub.ClientService.Infra\SnackHub.ClientService.Infra.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage" />
+    </ItemGroup>
+    
 </Project>

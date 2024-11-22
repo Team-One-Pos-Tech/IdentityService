@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackHub.ClientService.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackHub.ClientService.Api", "src\SnackHub.ClientService.Api\SnackHub.ClientService.Api.csproj", "{8B329BBC-FCB9-4D5C-96A6-A62E33447472}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackHub.ClientService.Behavior.Tests", "test\SnackHub.ClientService.Behavior.Tests\SnackHub.ClientService.Behavior.Tests.csproj", "{005B3377-0E1C-4B1F-B554-23FA372210EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,7 @@ Global
 		{C2B5366F-D561-4836-9D71-CC7CB8747485} = {C5F9E4A4-09F2-41C7-90C4-7336976679E4}
 		{2F10717F-CFB9-4FA5-8AA0-80482768D02A} = {C5F9E4A4-09F2-41C7-90C4-7336976679E4}
 		{8B329BBC-FCB9-4D5C-96A6-A62E33447472} = {C5F9E4A4-09F2-41C7-90C4-7336976679E4}
+		{005B3377-0E1C-4B1F-B554-23FA372210EE} = {37D3A879-785B-4B7D-A843-123FCA616788}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A52ADACF-F745-478F-B4F4-892C7690EA69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +43,9 @@ Global
 		{8B329BBC-FCB9-4D5C-96A6-A62E33447472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B329BBC-FCB9-4D5C-96A6-A62E33447472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B329BBC-FCB9-4D5C-96A6-A62E33447472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005B3377-0E1C-4B1F-B554-23FA372210EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005B3377-0E1C-4B1F-B554-23FA372210EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005B3377-0E1C-4B1F-B554-23FA372210EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005B3377-0E1C-4B1F-B554-23FA372210EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

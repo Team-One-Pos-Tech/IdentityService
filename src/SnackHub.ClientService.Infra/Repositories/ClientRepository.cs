@@ -10,7 +10,7 @@ namespace SnackHub.ClientService.Infra.Repositories;
 
 public class ClientRepository : BaseRepository<ClientModel, ClientDbContext>, IClientRepository
 {
-    public ClientRepository(ClientDbContext dbContext, ILoggerFactory loggerFactory) : base(dbContext, loggerFactory)
+    public ClientRepository(ClientDbContext dbContext) : base(dbContext)
     {
     }
 
@@ -26,6 +26,6 @@ public class ClientRepository : BaseRepository<ClientModel, ClientDbContext>, IC
 
     public async Task<ClientModel?> GetClientByCpfAsync(Cpf cpf)
     {
-        return await FindByPredicateAsync(px => px.Cpf.Equals(cpf));
+        return await FindByPredicateAsync(px => px.Cpf.Equals(cpf.Value));
     }
 }

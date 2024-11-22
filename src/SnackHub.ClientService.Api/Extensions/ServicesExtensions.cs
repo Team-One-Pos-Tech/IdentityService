@@ -8,7 +8,7 @@ public static class ServicesExtensions
 {
     public static IServiceCollection AddServices(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddScoped<IAuthService, JwtAuthService>();
+        serviceCollection.AddScoped<IAuthService, FakeJwtAuthService>();
         return serviceCollection;
     }
 }
