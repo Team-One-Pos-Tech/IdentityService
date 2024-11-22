@@ -9,7 +9,6 @@ public static class AddUseCasesExtensions
     public static IServiceCollection AddUseCases(this IServiceCollection serviceCollection)
     {
         serviceCollection
-            .AddScoped<IRegisterClientUseCase, RegisterClientUseCase>()
             .AddScoped<IGetClientUseCase, GetClientUseCase>()
             .AddScoped<ISignInUseCase, SignInUseCase>()
             .AddScoped<ISignUpUseCase, SignUpUseCase>();

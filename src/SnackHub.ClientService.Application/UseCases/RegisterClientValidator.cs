@@ -6,8 +6,15 @@ using SnackHub.ClientService.Domain.ValueObjects;
 
 namespace SnackHub.ClientService.Application.UseCases;
 
-public class RegisterClientValidator(IClientRepository _clientRepository) : IRegisterClientValidator
+public class RegisterClientValidator : IRegisterClientValidator
 {
+    private readonly IClientRepository _clientRepository;
+
+    public RegisterClientValidator(IClientRepository clientRepository)
+    {
+        _clientRepository = clientRepository;
+    }
+
     public async Task<bool> IsValid(RegisterClientRequest registerClientRequest, RegisterClientResponse response)
     {
         var cpf = new Cpf(registerClientRequest.Cpf);
@@ -19,7 +26,7 @@ public class RegisterClientValidator(IClientRepository _clientRepository) : IReg
         }
 
         var existsCpf = await _clientRepository.GetClientByCpfAsync(cpf);
-        if (existsCpf != null)
+        if (existsCpf is not null)
         {
             response.AddNotification("CPF", "CPF is already registered.");
             return false;
