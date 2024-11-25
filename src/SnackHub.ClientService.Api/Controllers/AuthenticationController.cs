@@ -11,7 +11,7 @@ namespace SnackHub.ClientService.Api.Controllers;
 /// <summary>
 ///     Handles user authentication.
 /// </summary>
-[Route("api/[controller]")]
+[Route("api/[controller]/v1")]
 [ApiController]
 public class AuthenticationController(
     ISignInUseCase signInUseCase,
