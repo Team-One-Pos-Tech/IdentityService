@@ -35,7 +35,9 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
+        // Configure the HTTP request pipeline.
+        if (bool.TryParse(builder.Configuration.GetSection("https").Value, out var result) && result)
+            app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
         app.Run();
