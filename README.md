@@ -1,4 +1,4 @@
-# SnackHub.Production
+# SnackHub.ClientService
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Team-One-Pos-Tech_SnackHub.ClientService&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Team-One-Pos-Tech_SnackHub.ClientService)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Team-One-Pos-Tech_SnackHub.ClientService&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Team-One-Pos-Tech_SnackHub.ClientService)
 
