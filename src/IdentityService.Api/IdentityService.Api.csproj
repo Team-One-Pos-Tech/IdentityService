@@ -16,8 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\SnackHub.ClientService.Application\IdentityService.Application.csproj" />
-        <ProjectReference Include="..\SnackHub.ClientService.Infra\IdentityService.Infra.csproj" />
+        <ProjectReference Include="..\IdentityService.Application\IdentityService.Application.csproj" />
+        <ProjectReference Include="..\IdentityService.Infra\IdentityService.Infra.csproj" />
     </ItemGroup>
     
 </Project>

@@ -99,8 +99,8 @@ namespace IdentityService.Behavior.Tests.Features
             {
                 await this.ScenarioStartAsync();
 #line 4
-        await testRunner.GivenAsync("a SignUpRequest with name \'John Doe\', cpf \'98430490043\', password \'JohnSup3rP4ss\'" +
-                        " and email \'john-doe@mail.com\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+        await testRunner.GivenAsync(("a SignUpRequest with name \'John Doe\', cpf \'98430490043\', password \'JohnSup3rP4ss\'" +
+                        " and email \'john-doe@mail.com\'"), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 5
         await testRunner.WhenAsync("persisting it into the database", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -112,8 +112,8 @@ namespace IdentityService.Behavior.Tests.Features
         await testRunner.ThenAsync("an event of type \'ClientCreated\' is raised", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 8
-        await testRunner.ThenAsync("it should be able to sign in by using cpf \'98430490043\' and password \'JohnSup3rP4" +
-                        "ss\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+        await testRunner.ThenAsync(("it should be able to sign in by using cpf \'98430490043\' and password \'JohnSup3rP4" +
+                        "ss\'"), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

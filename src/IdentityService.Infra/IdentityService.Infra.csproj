@@ -18,7 +18,7 @@
 
 
     <ItemGroup>
-        <ProjectReference Include="..\SnackHub.ClientService.Domain\IdentityService.Domain.csproj" />
+        <ProjectReference Include="..\IdentityService.Domain\IdentityService.Domain.csproj" />
     </ItemGroup>
 
 </Project>
