@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SnackHub.ClientService.Domain.Base;
+namespace IdentityService.Domain.Base;
 
 public abstract class ValueObject
 {

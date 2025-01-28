@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using IdentityService.Application.Contracts;
+using IdentityService.Application.Models;
+using IdentityService.Domain.Contracts;
+using IdentityService.Domain.Entities;
+using IdentityService.Domain.Models.Gateways;
 using MassTransit;
-using SnackHub.ClientService.Application.Contracts;
-using SnackHub.ClientService.Application.Models;
-using SnackHub.ClientService.Domain.Contracts;
-using SnackHub.ClientService.Domain.Entities;
-using SnackHub.ClientService.Domain.Models.Gateways;
-using SnackHub.ClientService.Domain.ValueObjects;
+using IdentityService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Application.UseCases;
+namespace IdentityService.Application.UseCases;
 
 public class SignUpUseCase : ISignUpUseCase
 {
@@ -18,8 +18,8 @@ public class SignUpUseCase : ISignUpUseCase
 
 
     public SignUpUseCase(
-        IClientRepository clientRepository, 
-        IRegisterClientValidator validator, 
+        IClientRepository clientRepository,
+        IRegisterClientValidator validator,
         IPublishEndpoint publishEndpoint)
     {
         _clientRepository = clientRepository;
@@ -43,7 +43,7 @@ public class SignUpUseCase : ISignUpUseCase
 
         return response;
     }
-    
+
     private static Client CreateClient(RegisterClientRequest registerClientRequest)
     {
         return new Client(

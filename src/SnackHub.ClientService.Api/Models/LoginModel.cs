@@ -1,3 +1,3 @@
-namespace SnackHub.ClientService.Api.Models;
+namespace IdentityService.Api.Models;
 
 public record LoginModel(string Cpf);

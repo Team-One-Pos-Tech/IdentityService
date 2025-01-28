@@ -1,7 +1,7 @@
 ﻿using System;
 using Flunt.Notifications;
 
-namespace SnackHub.ClientService.Application.Models;
+namespace IdentityService.Application.Models;
 
 public class RegisterClientResponse : Notifiable<Notification>
 {

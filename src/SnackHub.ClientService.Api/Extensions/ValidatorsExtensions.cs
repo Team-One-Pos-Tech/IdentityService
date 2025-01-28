@@ -1,8 +1,8 @@
+using IdentityService.Application.Contracts;
+using IdentityService.Application.UseCases;
 using Microsoft.Extensions.DependencyInjection;
-using SnackHub.ClientService.Application.Contracts;
-using SnackHub.ClientService.Application.UseCases;
 
-namespace SnackHub.ClientService.Api.Extensions;
+namespace IdentityService.Api.Extensions;
 
 public static class ValidatorsExtensions
 {

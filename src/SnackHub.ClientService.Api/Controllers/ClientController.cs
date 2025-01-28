@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
+using IdentityService.Application.Contracts;
+using IdentityService.Application.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SnackHub.ClientService.Application.Contracts;
-using SnackHub.ClientService.Application.Models;
 
-namespace SnackHub.ClientService.Api.Controllers;
+namespace IdentityService.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]/v1")]

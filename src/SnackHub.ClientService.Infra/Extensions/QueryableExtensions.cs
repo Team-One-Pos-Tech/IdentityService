@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace SnackHub.ClientService.Infra.Extensions;
+namespace IdentityService.Infra.Extensions;
 
 public static class QueryableExtensions
 {

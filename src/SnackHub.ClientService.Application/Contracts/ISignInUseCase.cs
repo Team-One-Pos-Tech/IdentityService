@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using SnackHub.ClientService.Application.Models;
-using SnackHub.ClientService.Domain.Models.Gateways;
+using IdentityService.Application.Models;
+using IdentityService.Domain.Models.Gateways;
 
-namespace SnackHub.ClientService.Application.Contracts;
+namespace IdentityService.Application.Contracts;
 
 public interface ISignInUseCase
 {

@@ -1,9 +1,10 @@
+using IdentityService.Api.Configuration;
+using IdentityService.Api.Extensions;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SnackHub.ClientService.Api.Configuration;
 
-namespace SnackHub.ClientService.Api.Extensions;
+namespace IdentityService.Api.Extensions;
 
 public static class MassTransitExtensions
 {

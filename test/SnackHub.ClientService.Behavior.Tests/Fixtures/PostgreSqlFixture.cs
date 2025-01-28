@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
+using IdentityService.Infra.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
-using SnackHub.ClientService.Infra.Repositories.Context;
 using Testcontainers.PostgreSql;
 
-namespace SnackHub.ClientService.Behavior.Tests.Fixtures;
+namespace IdentityService.Behavior.Tests.Fixtures;
 
 public abstract class PostgreSqlFixture
 {
@@ -15,7 +15,7 @@ public abstract class PostgreSqlFixture
     private PostgreSqlContainer _postgresContainer;
 
     protected ClientDbContext ClientDbContext;
-    
+
     [SetUp]
     protected async Task BaseSetUp()
     {
@@ -31,16 +31,16 @@ public abstract class PostgreSqlFixture
             .Build();
 
         await _postgresContainer.StartAsync();
-        
+
         var dbContextOptions = new DbContextOptionsBuilder<ClientDbContext>()
             .UseNpgsql(_postgresContainer.GetConnectionString())
             .Options;
 
         ClientDbContext = new ClientDbContext(dbContextOptions);
         await ClientDbContext.Database.EnsureCreatedAsync();
-        
+
     }
-    
+
     [TearDown]
     protected async Task BaseTearDown()
     {

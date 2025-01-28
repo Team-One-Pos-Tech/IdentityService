@@ -1,12 +1,12 @@
+using IdentityService.Api.Configuration;
+using IdentityService.Domain.Contracts;
+using IdentityService.Infra.Repositories;
+using IdentityService.Infra.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SnackHub.ClientService.Api.Configuration;
-using SnackHub.ClientService.Domain.Contracts;
-using SnackHub.ClientService.Infra.Repositories;
-using SnackHub.ClientService.Infra.Repositories.Context;
 
-namespace SnackHub.ClientService.Api.Extensions;
+namespace IdentityService.Api.Extensions;
 
 public static class RepositoriesExtensions
 {

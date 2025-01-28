@@ -1,12 +1,12 @@
 using System;
 using System.Threading.Tasks;
+using IdentityService.Domain.Contracts;
+using IdentityService.Domain.Entities;
+using IdentityService.Domain.ValueObjects;
+using IdentityService.Infra.Repositories.Context;
 using Microsoft.Extensions.Logging;
-using SnackHub.ClientService.Domain.Contracts;
-using SnackHub.ClientService.Domain.Entities;
-using SnackHub.ClientService.Domain.ValueObjects;
-using SnackHub.ClientService.Infra.Repositories.Context;
 
-namespace SnackHub.ClientService.Infra.Repositories;
+namespace IdentityService.Infra.Repositories;
 
 public class ClientRepository : BaseRepository<ClientModel, ClientDbContext>, IClientRepository
 {

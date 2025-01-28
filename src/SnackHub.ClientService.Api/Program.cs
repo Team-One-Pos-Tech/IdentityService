@@ -1,16 +1,16 @@
+using IdentityService.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SnackHub.ClientService.Api.Extensions;
 
-namespace SnackHub.ClientService.Api;
+namespace IdentityService.Api;
 
 public class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        
+
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -25,7 +25,7 @@ public class Program
             .AddValidators();
 
         var app = builder.Build();
-        
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

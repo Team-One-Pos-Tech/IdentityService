@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SnackHub.ClientService.Domain.Entities;
-using SnackHub.ClientService.Domain.ValueObjects;
+using IdentityService.Domain.Entities;
+using IdentityService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Domain.Contracts;
+namespace IdentityService.Domain.Contracts;
 
 public interface IClientRepository
 {

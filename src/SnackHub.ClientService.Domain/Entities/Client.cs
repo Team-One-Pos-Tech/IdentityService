@@ -1,8 +1,8 @@
 ﻿using System;
-using SnackHub.ClientService.Domain.Base;
-using SnackHub.ClientService.Domain.ValueObjects;
+using IdentityService.Domain.Base;
+using IdentityService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Domain.Entities;
+namespace IdentityService.Domain.Entities;
 
 public class Client : IAggregateRoot
 {

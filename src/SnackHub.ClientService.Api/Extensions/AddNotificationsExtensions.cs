@@ -2,7 +2,7 @@
 using Flunt.Notifications;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace SnackHub.ClientService.Api.Extensions;
+namespace IdentityService.Api.Extensions;
 
 public static class AddNotificationsExtensions
 {

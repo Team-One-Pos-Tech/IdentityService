@@ -1,4 +1,4 @@
-namespace SnackHub.ClientService.Domain.Models.Gateways;
+namespace IdentityService.Domain.Models.Gateways;
 
 public record SignInRequest
 {

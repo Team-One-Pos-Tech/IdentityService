@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace SnackHub.ClientService.Infra.Repositories.Context;
+namespace IdentityService.Infra.Repositories.Context;
 
 public class ClientDbContext : DbContext
 {

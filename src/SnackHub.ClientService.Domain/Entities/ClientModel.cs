@@ -1,7 +1,7 @@
+using IdentityService.Domain.ValueObjects;
 using System;
-using SnackHub.ClientService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Domain.Entities;
+namespace IdentityService.Domain.Entities;
 
 public record ClientModel
 {

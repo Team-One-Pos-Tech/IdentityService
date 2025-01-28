@@ -1,12 +1,12 @@
-using System.Threading.Tasks;
+using IdentityService.Api.Extensions;
+using IdentityService.Api.Models;
+using IdentityService.Application.Contracts;
+using IdentityService.Application.Models;
+using IdentityService.Domain.Models.Gateways;
 using Microsoft.AspNetCore.Mvc;
-using SnackHub.ClientService.Api.Extensions;
-using SnackHub.ClientService.Api.Models;
-using SnackHub.ClientService.Application.Contracts;
-using SnackHub.ClientService.Application.Models;
-using SnackHub.ClientService.Domain.Models.Gateways;
+using System.Threading.Tasks;
 
-namespace SnackHub.ClientService.Api.Controllers;
+namespace IdentityService.Api.Controllers;
 
 /// <summary>
 ///     Handles user authentication.

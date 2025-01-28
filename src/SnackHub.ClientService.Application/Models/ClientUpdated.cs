@@ -1,7 +1,7 @@
 using System;
 using MassTransit;
 
-namespace SnackHub.ClientService.Application.Models;
+namespace IdentityService.Application.Models;
 
 [MessageUrn("snack-hub-clients")]
 [EntityName("client-updated")]

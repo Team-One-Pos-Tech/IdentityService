@@ -1,5 +1,5 @@
-﻿using SnackHub.ClientService.Domain.ValueObjects;
+﻿using IdentityService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Application.Models;
+namespace IdentityService.Application.Models;
 
 public record GetClientResponse(string Name, Cpf Cpf);

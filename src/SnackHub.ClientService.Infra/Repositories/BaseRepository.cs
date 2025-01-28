@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using IdentityService.Infra.Extensions;
+using IdentityService.Infra.Repositories.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using SnackHub.ClientService.Infra.Extensions;
-using SnackHub.ClientService.Infra.Repositories.Abstractions;
 
-namespace SnackHub.ClientService.Infra.Repositories;
+namespace IdentityService.Infra.Repositories;
 
 public class BaseRepository<TModel, TDbContext> : IBaseRepository<TModel>
     where TModel : class

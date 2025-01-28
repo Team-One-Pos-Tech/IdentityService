@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using SnackHub.ClientService.Domain.Base;
+using IdentityService.Domain.Base;
 
-namespace SnackHub.ClientService.Domain.ValueObjects;
+namespace IdentityService.Domain.ValueObjects;
 
 public class Cpf : ValueObject
 {

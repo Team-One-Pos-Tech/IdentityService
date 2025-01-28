@@ -1,8 +1,8 @@
+using IdentityService.Domain.Contracts;
+using IdentityService.Infra.Services;
 using Microsoft.Extensions.DependencyInjection;
-using SnackHub.ClientService.Domain.Contracts;
-using SnackHub.ClientService.Infra.Services;
 
-namespace SnackHub.ClientService.Api.Extensions;
+namespace IdentityService.Api.Extensions;
 
 public static class ServicesExtensions
 {

@@ -1,8 +1,8 @@
+using IdentityService.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SnackHub.ClientService.Domain.Entities;
 
-namespace SnackHub.ClientService.Infra.Repositories.Maps;
+namespace IdentityService.Infra.Repositories.Maps;
 
 public class ClientMap : IEntityTypeConfiguration<ClientModel>
 {

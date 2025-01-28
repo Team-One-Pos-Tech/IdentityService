@@ -2,20 +2,20 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using IdentityService.Application.Contracts;
+using IdentityService.Application.Models;
+using IdentityService.Application.UseCases;
+using IdentityService.Behavior.Tests.Fixtures;
+using IdentityService.Domain.Contracts;
+using IdentityService.Domain.Models.Gateways;
+using IdentityService.Infra.Repositories;
+using IdentityService.Infra.Services;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using Reqnroll;
-using SnackHub.ClientService.Application.Contracts;
-using SnackHub.ClientService.Application.Models;
-using SnackHub.ClientService.Application.UseCases;
-using SnackHub.ClientService.Behavior.Tests.Fixtures;
-using SnackHub.ClientService.Domain.Contracts;
-using SnackHub.ClientService.Domain.Models.Gateways;
-using SnackHub.ClientService.Infra.Repositories;
-using SnackHub.ClientService.Infra.Services;
 
-namespace SnackHub.ClientService.Behavior.Tests.StepDefintions;
+namespace IdentityService.Behavior.Tests.StepDefintions;
 
 [Binding]
 public class SignUpSignInStepDefinitions : PostgreSqlFixture
@@ -23,22 +23,22 @@ public class SignUpSignInStepDefinitions : PostgreSqlFixture
     private ISignUpUseCase _signUpUseCase;
     private ISignInUseCase _signInUseCase;
     private IGetClientUseCase _getClientUseCase;
-    
+
     private IClientRepository _clientRepository;
-    
+
     private Mock<IPublishEndpoint> _publishEndpointMock;
-    
+
     private SignUpRequest _signUpRequest;
-    
+
     [BeforeScenario]
     public async Task Setup()
     {
         await BaseSetUp();
         _publishEndpointMock = new Mock<IPublishEndpoint>();
-        
+
         _clientRepository = new ClientRepository(ClientDbContext);
         var registerValidator = new RegisterClientValidator(_clientRepository);
-        
+
         _signUpUseCase = new SignUpUseCase(_clientRepository, registerValidator, _publishEndpointMock.Object);
         _getClientUseCase = new GetClientUseCase(_clientRepository);
 
@@ -48,13 +48,13 @@ public class SignUpSignInStepDefinitions : PostgreSqlFixture
             {"Auth:Issuer", "RandomIssuer"},
             {"Auth:Audience", "RandomAudience"},
         };
-        
+
         var configuration = new ConfigurationBuilder()
             .AddInMemoryCollection(configDictionary)
             .Build();
 
         var authService = new FakeJwtAuthService(configuration);
-        
+
         _signInUseCase = new SignInUseCase(authService, _getClientUseCase);
     }
 

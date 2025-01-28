@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using SnackHub.ClientService.Domain.Models.Gateways;
+using IdentityService.Domain.Models.Gateways;
 
-namespace SnackHub.ClientService.Domain.Contracts;
+namespace IdentityService.Domain.Contracts;
 
 public interface IAuthService
 {

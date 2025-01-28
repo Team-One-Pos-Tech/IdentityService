@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SnackHub.ClientService.Application.Contracts;
-using SnackHub.ClientService.Application.Models;
-using SnackHub.ClientService.Domain.Contracts;
-using SnackHub.ClientService.Domain.ValueObjects;
+using IdentityService.Application.Contracts;
+using IdentityService.Application.Models;
+using IdentityService.Domain.Contracts;
+using IdentityService.Domain.ValueObjects;
+using IdentityService.Domain.ValueObjects;
 
-namespace SnackHub.ClientService.Application.UseCases;
+namespace IdentityService.Application.UseCases;
 
 public class GetClientUseCase(IClientRepository clientRepository) : IGetClientUseCase
 {

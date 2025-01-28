@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SnackHub.ClientService.Application.Models;
+using IdentityService.Application.Models;
 
-namespace SnackHub.ClientService.Application.Contracts;
+namespace IdentityService.Application.Contracts;
 
 public interface IGetClientUseCase
 {
