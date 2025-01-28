@@ -3,8 +3,8 @@ jobs:
   build-and-test:
     uses: Team-One-Pos-Tech/SnackHub.SharedWorkFlows/.github/workflows/build.yml@main
     with:
-      solution-name: "SnackHub.ClientService.sln"
-      api-project-name: "SnackHub.ClientService.Api"
+      solution-name: "IdentityService.sln"
+      api-project-name: "IdentityService.Api"
       sonar-project-key: "Team-One-Pos-Tech_SnackHub.ClientService"
     secrets:
       sonar-token: ${{secrets.SONAR_TOKEN}}
@@ -13,5 +13,5 @@ jobs:
     needs: build-and-test
     uses: Team-One-Pos-Tech/SnackHub.SharedWorkFlows/.github/workflows/dockerize.yml@main
     with:
-      image-name: "team-one-pos-tech/snack-hub-client-service"
-      api-entrypoint-binary: "SnackHub.ClientService.Api.dll"
+      image-name: "team-one-pos-tech/identity-service"
+      api-entrypoint-binary: "IdentityService.Api.dll"
