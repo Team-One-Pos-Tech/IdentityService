@@ -53,7 +53,7 @@ public class SignUpSignInStepDefinitions : PostgreSqlFixture
             .AddInMemoryCollection(configDictionary)
             .Build();
 
-        var authService = new FakeJwtAuthService(configuration);
+        var authService = new JwtAuthService(configuration);
 
         _signInUseCase = new SignInUseCase(authService, _getClientUseCase);
     }

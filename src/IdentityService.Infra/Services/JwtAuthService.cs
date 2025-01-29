@@ -11,14 +11,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityService.Infra.Services;
 
-public class FakeJwtAuthService : IAuthService
+public class JwtAuthService(IConfiguration configuration) : IAuthService
 {
-    private readonly IConfiguration _configuration;
-
-    public FakeJwtAuthService(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
+    private readonly IConfiguration _configuration = configuration;
 
     public async Task<AuthResponseType> Execute(SignInRequest request)
     {
