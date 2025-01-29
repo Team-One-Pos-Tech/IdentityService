@@ -13,7 +13,7 @@ public class EmailSender(string smtpHost, int smtpPort, string smtpUser, string 
 
         message.From.Add(new MailboxAddress("FrameUp", smtpUser));
 
-        message.To.Add(new MailboxAddress("", sendMailRequest.Email));
+        message.To.Add(new MailboxAddress("", sendMailRequest.Recipient));
 
         message.Subject = sendMailRequest.Subject;
 

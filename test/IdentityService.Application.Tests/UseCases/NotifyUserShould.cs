@@ -35,7 +35,7 @@ internal class NotifyUserShould
 
         // Assert
         emailSenderMock.Verify(x => x.SendEmailAsync(
-            It.Is<SendEmailRequest>(rq => rq.Email == request.Email)), Times.Once);
+            It.Is<SendEmailRequest>(rq => rq.Recipient == request.Email)), Times.Once);
     }
 
     [Test]
