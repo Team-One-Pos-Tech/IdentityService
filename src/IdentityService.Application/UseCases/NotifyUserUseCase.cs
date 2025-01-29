@@ -25,6 +25,6 @@ public class NotifyUserUseCase(IEmailSender emailSender)
 
     private static string CreateTemplate(NotifyOrderUpdateStatusRequest request)
     {
-        return $"{request.OrderId}";
+        return $"{request.OrderId}, {request.OrderStatus}";
     }
 }
