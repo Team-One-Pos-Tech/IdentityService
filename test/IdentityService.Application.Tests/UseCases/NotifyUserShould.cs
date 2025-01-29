@@ -25,6 +25,9 @@ internal class NotifyUserShould
         var request = new NotifyOrderUpdateStatusRequest
         {
             Email = "email@mail.com",
+            OrderId = Guid.NewGuid(),
+            OrderStatus = "Concluded",
+            PackageUri = "http://url.com",
         };
 
         // Act
@@ -42,6 +45,9 @@ internal class NotifyUserShould
         var request = new NotifyOrderUpdateStatusRequest
         {
             Email = "email@mail.com",
+            OrderId = Guid.NewGuid(),
+            OrderStatus = "Concluded",
+            PackageUri = "http://url.com",
         };
 
         // Act
@@ -60,6 +66,8 @@ internal class NotifyUserShould
         {
             Email = "email@mail.com",
             OrderId = Guid.NewGuid(),
+            OrderStatus = "Concluded",
+            PackageUri = "http://url.com",
         };
 
         // Act
@@ -71,14 +79,15 @@ internal class NotifyUserShould
     }
 
     [Test]
-    public async Task Send_Email_With_Order_Status()
+    public async Task Send_Email_With_Package_Uri()
     {
         // Arrange
         var request = new NotifyOrderUpdateStatusRequest
         {
             Email = "email@mail.com",
             OrderId = Guid.NewGuid(),
-            OrderStatus = "Concluded"
+            OrderStatus = "Concluded",
+            PackageUri = "http://url.com",
         };
 
         // Act
@@ -86,6 +95,6 @@ internal class NotifyUserShould
 
         // Assert
         emailSenderMock.Verify(x => x.SendEmailAsync(
-            It.Is<SendEmailRequest>(rq => rq.Body.Contains(request.OrderStatus))), Times.Once);
+            It.Is<SendEmailRequest>(rq => rq.Body.Contains(request.PackageUri))), Times.Once);
     }
 }
