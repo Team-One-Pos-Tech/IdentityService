@@ -28,7 +28,11 @@ public class JwtAuthService(IConfiguration configuration) : IAuthService
         var tokeOptions = new JwtSecurityToken(
             issuer,
             audience,
-            new List<Claim>(),
+            new List<Claim>()
+            {
+                new Claim("username", request.Username),
+                new Claim("userid", request.UserId.ToString()),
+            },
             expires: DateTime.Now.AddMinutes(2),
             signingCredentials: signinCredentials);
 

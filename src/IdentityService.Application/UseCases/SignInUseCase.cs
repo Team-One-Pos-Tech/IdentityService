@@ -25,6 +25,8 @@ public class SignInUseCase(IAuthService auth, IGetClientUseCase getClientUseCase
             return signInResponse;
         }
 
+        request.UserId = client.Id;
+
         var response = await auth.Execute(request);
 
         return new SignInResponse(response.IdToken);

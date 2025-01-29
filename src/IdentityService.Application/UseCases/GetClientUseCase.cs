@@ -17,9 +17,11 @@ public class GetClientUseCase(IClientRepository clientRepository) : IGetClientUs
 
         var domainModel = client.ToDomainModel();
 
-        var response = new GetClientResponse(domainModel.Name, domainModel.Cpf);
-
-        response.Email = domainModel.Email;
+        var response = new GetClientResponse(domainModel.Name, domainModel.Cpf)
+        {
+            Email = domainModel.Email,
+            Id = domainModel.Id
+        };
 
         return response;
     }
@@ -36,6 +38,13 @@ public class GetClientUseCase(IClientRepository clientRepository) : IGetClientUs
 
         var domainModel = client.ToDomainModel();
 
-        return new GetClientResponse(domainModel.Name, domainModel.Cpf);
+       
+        var response = new GetClientResponse(domainModel.Name, domainModel.Cpf)
+        {
+            Email = domainModel.Email,
+            Id = domainModel.Id
+        };
+
+        return response;
     }
 }
