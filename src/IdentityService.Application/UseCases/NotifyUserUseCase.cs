@@ -10,9 +10,15 @@ namespace IdentityService.Application.UseCases;
 
 public class NotifyUserUseCase(IEmailSender emailSender)
 {
+    public static readonly string OrderStatusUpdateSubject = "Order Status Update";
+
     public async Task NotifyOrderUpdateStatus(NotifyOrderUpdateStatusRequest request)
     {
-        var sendEmailRequest = new SendEmailRequest(request.Email, "Order Status Update", "Your order status has been updated.");
+        var sendEmailRequest = new SendEmailRequest(
+            request.Email,
+            OrderStatusUpdateSubject, 
+            "Your order status has been updated."
+        );
 
         await emailSender.SendEmailAsync(sendEmailRequest);
     }

@@ -34,4 +34,21 @@ internal class NotifyUserShould
         emailSenderMock.Verify(x => x.SendEmailAsync(
             It.Is<SendEmailRequest>(rq => rq.Email == request.Email)), Times.Once);
     }
+
+    [Test]
+    public async Task Send_Email_With_Subject()
+    {
+        // Arrange
+        var request = new NotifyOrderUpdateStatusRequest
+        {
+            Email = "email@mail.com",
+        };
+
+        // Act
+        await notifyUser.NotifyOrderUpdateStatus(request);
+
+        // Assert
+        emailSenderMock.Verify(x => x.SendEmailAsync(
+            It.Is<SendEmailRequest>(rq => rq.Subject == NotifyUserUseCase.OrderStatusUpdateSubject)), Times.Once);
+    }
 }
