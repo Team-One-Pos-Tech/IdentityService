@@ -1,5 +1,6 @@
 using IdentityService.Api.Configuration;
 using IdentityService.Api.Extensions;
+using IdentityService.Application.Consumers;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +16,9 @@ public static class MassTransitExtensions
 
         serviceCollection.AddMassTransit(busConfigurator =>
         {
-            busConfigurator.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("client-service"));
+            busConfigurator.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("identity-service"));
+
+            busConfigurator.AddConsumer<NotifyUpdateOrderConsumer>();
 
             busConfigurator.SetKebabCaseEndpointNameFormatter();
             busConfigurator.UsingRabbitMq((context, configurator) =>

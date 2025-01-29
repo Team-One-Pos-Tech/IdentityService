@@ -37,7 +37,7 @@ public class NotifyUserUseCase(IEmailSender emailSender) : INotifyUserUseCase
 
     private static string GetPackageUriText(NotifyOrderUpdateStatusRequest request)
     {
-        if(request.OrderStatus == "Concluded")
+        if(request.PackageUri != null)
             return $"<p>Download your package <a href='{request.PackageUri}'>here</a>.</p>";
 
         return $"";
