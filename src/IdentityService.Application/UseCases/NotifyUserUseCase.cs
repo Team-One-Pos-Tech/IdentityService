@@ -12,6 +12,8 @@ public class NotifyUserUseCase(IEmailSender emailSender)
 {
     public async Task NotifyOrderUpdateStatus(NotifyOrderUpdateStatusRequest request)
     {
-        throw new NotImplementedException();
+        var sendEmailRequest = new SendEmailRequest(request.Email, "Order Status Update", "Your order status has been updated.");
+
+        await emailSender.SendEmailAsync(sendEmailRequest);
     }
 }
