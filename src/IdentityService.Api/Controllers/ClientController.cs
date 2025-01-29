@@ -21,7 +21,7 @@ public class ClientController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<GetClientResponse>> GetById([FromRoute] Guid id)
     {
-        var clientResponse = await _getClientUseCase.Execute(id);
+        var clientResponse = await _getClientUseCase.GetById(id);
         if (clientResponse is null)
             return NotFound();
 
@@ -31,7 +31,7 @@ public class ClientController : ControllerBase
     [HttpGet("{cpf:minlength(11):maxlength(11)}")]
     public async Task<ActionResult<GetClientResponse>> GetByCpf([FromRoute] string cpf)
     {
-        var clientResponse = await _getClientUseCase.Execute(cpf);
+        var clientResponse = await _getClientUseCase.GetByCpf(cpf);
         if (clientResponse is null)
             return NotFound();
 

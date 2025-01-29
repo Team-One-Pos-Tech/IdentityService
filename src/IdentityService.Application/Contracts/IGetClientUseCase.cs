@@ -6,6 +6,6 @@ namespace IdentityService.Application.Contracts;
 
 public interface IGetClientUseCase
 {
-    Task<GetClientResponse?> Execute(Guid id);
-    Task<GetClientResponse?> Execute(string cpf);
+    Task<GetClientResponse?> GetById(Guid id);
+    Task<GetClientResponse?> GetByCpf(string cpf);
 }

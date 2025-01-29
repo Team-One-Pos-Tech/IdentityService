@@ -73,7 +73,7 @@ public class SignUpSignInStepDefinitions : PostgreSqlFixture
     [Then("the client with cpf '(.*)' should be stored")]
     public async Task ThenItShouldBeStored(string cpf)
     {
-        var client = await _getClientUseCase.Execute(cpf);
+        var client = await _getClientUseCase.GetByCpf(cpf);
 
         client
             .Should()

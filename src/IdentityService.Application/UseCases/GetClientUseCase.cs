@@ -4,13 +4,12 @@ using IdentityService.Application.Contracts;
 using IdentityService.Application.Models;
 using IdentityService.Domain.Contracts;
 using IdentityService.Domain.ValueObjects;
-using IdentityService.Domain.ValueObjects;
 
 namespace IdentityService.Application.UseCases;
 
 public class GetClientUseCase(IClientRepository clientRepository) : IGetClientUseCase
 {
-    public async Task<GetClientResponse?> Execute(Guid id)
+    public async Task<GetClientResponse?> GetById(Guid id)
     {
         var client = await clientRepository.GetClientByIdAsync(id);
         if (client is null)
@@ -18,10 +17,14 @@ public class GetClientUseCase(IClientRepository clientRepository) : IGetClientUs
 
         var domainModel = client.ToDomainModel();
 
-        return new GetClientResponse(domainModel.Name, domainModel.Cpf);
+        var response = new GetClientResponse(domainModel.Name, domainModel.Cpf);
+
+        response.Email = domainModel.Email;
+
+        return response;
     }
 
-    public async Task<GetClientResponse?> Execute(string cpf)
+    public async Task<GetClientResponse?> GetByCpf(string cpf)
     {
         var cpfObject = new Cpf(cpf);
         if (!cpfObject.IsValid())

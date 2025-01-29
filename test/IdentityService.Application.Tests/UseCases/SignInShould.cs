@@ -34,7 +34,7 @@ namespace IdentityService.Application.Tests.UseCases
                 .ReturnsAsync(new AuthResponseType("token", true));
 
             mockGetClient
-                .Setup(getClient => getClient.Execute(It.IsAny<string>()))
+                .Setup(getClient => getClient.GetByCpf(It.IsAny<string>()))
                 .ReturnsAsync(new GetClientResponse("Maycon Jordan", new Cpf("72860763023")));
 
             var request = new SignInRequest("72860763023", "123");
@@ -62,7 +62,7 @@ namespace IdentityService.Application.Tests.UseCases
             // Arrange
 
             mockGetClient
-                .Setup(getClient => getClient.Execute(It.IsAny<string>()));
+                .Setup(getClient => getClient.GetByCpf(It.IsAny<string>()));
 
             var request = new SignInRequest("72860763023", "123");
 

@@ -14,7 +14,7 @@ public class NotifyUpdateOrderConsumer(
 {
     public async Task Consume(ConsumeContext<OrderStatusChangedEvent> context)
     {
-        var user = await getClientUseCase.Execute(context.Message.OwnerId);
+        var user = await getClientUseCase.GetById(context.Message.OwnerId);
 
         if (user == null)
         {

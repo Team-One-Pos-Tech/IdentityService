@@ -16,7 +16,7 @@ public class SignInUseCase(IAuthService auth, IGetClientUseCase getClientUseCase
             return new SignInResponse(authResponse.IdToken);
         }
 
-        var client = await getClientUseCase.Execute(request.Username);
+        var client = await getClientUseCase.GetByCpf(request.Username);
 
         if (client == null)
         {

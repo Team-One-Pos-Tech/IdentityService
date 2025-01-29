@@ -29,7 +29,7 @@ public class GetClientShould
             .ReturnsAsync(clientMock);
 
         // Act
-        var response = await getClientUseCase.Execute(id);
+        var response = await getClientUseCase.GetById(id);
 
         // Assert
         response
