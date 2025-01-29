@@ -19,7 +19,7 @@ public static class ServicesExtensions
 
     private static void AddEmailService(IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        var emailSettings = configuration.GetSection("EmailServiceSettings").Get<EmailServiceSettings>()!;
+        var emailSettings = configuration.GetSection("EmailService").Get<EmailServiceSettings>()!;
 
         serviceCollection.AddTransient<IEmailSender>(
             provider => new EmailSender(

@@ -11,6 +11,7 @@ public static class AddUseCasesExtensions
         serviceCollection
             .AddScoped<IGetClientUseCase, GetClientUseCase>()
             .AddScoped<ISignInUseCase, SignInUseCase>()
+            .AddScoped<INotifyUserUseCase, NotifyUserUseCase>()
             .AddScoped<ISignUpUseCase, SignUpUseCase>();
 
         return serviceCollection;

@@ -11,7 +11,7 @@ public class EmailSender(string smtpHost, int smtpPort, string smtpUser, string 
     {
         var message = new MimeMessage();
 
-        message.From.Add(new MailboxAddress("My App", smtpUser));
+        message.From.Add(new MailboxAddress("FrameUp", smtpUser));
 
         message.To.Add(new MailboxAddress("", sendMailRequest.Email));
 

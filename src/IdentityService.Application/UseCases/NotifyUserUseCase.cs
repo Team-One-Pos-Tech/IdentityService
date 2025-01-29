@@ -1,14 +1,11 @@
-﻿using IdentityService.Application.Models;
+﻿using IdentityService.Application.Contracts;
+using IdentityService.Application.Models;
 using IdentityService.Domain.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IdentityService.Application.UseCases;
 
-public class NotifyUserUseCase(IEmailSender emailSender)
+public class NotifyUserUseCase(IEmailSender emailSender) : INotifyUserUseCase
 {
     public static readonly string OrderStatusUpdateSubject = "Order Status Update";
 
