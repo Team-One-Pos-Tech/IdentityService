@@ -16,10 +16,15 @@ public class NotifyUserUseCase(IEmailSender emailSender)
     {
         var sendEmailRequest = new SendEmailRequest(
             request.Email,
-            OrderStatusUpdateSubject, 
-            "Your order status has been updated."
+            OrderStatusUpdateSubject,
+            CreateTemplate(request)
         );
 
         await emailSender.SendEmailAsync(sendEmailRequest);
+    }
+
+    private static string CreateTemplate(NotifyOrderUpdateStatusRequest request)
+    {
+        return $"{request.OrderId}";
     }
 }
