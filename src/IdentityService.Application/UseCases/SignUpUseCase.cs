@@ -10,22 +10,14 @@ using IdentityService.Domain.ValueObjects;
 
 namespace IdentityService.Application.UseCases;
 
-public class SignUpUseCase : ISignUpUseCase
+public class SignUpUseCase(
+    IClientRepository clientRepository,
+    IRegisterClientValidator validator,
+    IPublishEndpoint publishEndpoint) : ISignUpUseCase
 {
-    private readonly IClientRepository _clientRepository;
-    private readonly IRegisterClientValidator _validator;
-    private readonly IPublishEndpoint _publishEndpoint;
-
-
-    public SignUpUseCase(
-        IClientRepository clientRepository,
-        IRegisterClientValidator validator,
-        IPublishEndpoint publishEndpoint)
-    {
-        _clientRepository = clientRepository;
-        _validator = validator;
-        _publishEndpoint = publishEndpoint;
-    }
+    private readonly IClientRepository _clientRepository = clientRepository;
+    private readonly IRegisterClientValidator _validator = validator;
+    private readonly IPublishEndpoint _publishEndpoint = publishEndpoint;
 
     public async Task<RegisterClientResponse> Execute(SignUpRequest request)
     {
