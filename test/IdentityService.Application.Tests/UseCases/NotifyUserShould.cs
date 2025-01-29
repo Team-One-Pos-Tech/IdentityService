@@ -79,7 +79,7 @@ internal class NotifyUserShould
     }
 
     [Test]
-    public async Task Send_Email_With_Package_Uri()
+    public async Task Send_Email_With_Package_Uri_When_Status_Is_Concluded()
     {
         // Arrange
         var request = new NotifyOrderUpdateStatusRequest
