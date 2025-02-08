@@ -22,7 +22,10 @@ public class NotifyUserUseCase(IEmailSender emailSender) : INotifyUserUseCase
 
     private static string CreateTemplate(NotifyOrderUpdateStatusRequest request)
     {
-        var packageUriText = GetPackageUriText(request);
+        var packagesText = "";
+
+        if (request.Packages.Length > 0)
+            packagesText = GetPackageTemplate(request);
 
         return $@"
         <html>
@@ -30,16 +33,20 @@ public class NotifyUserUseCase(IEmailSender emailSender) : INotifyUserUseCase
                 <h1>Processing Order Status Update</h1>
                 <p>Order ID: {request.OrderId}</p>
                 <p>Status: {request.OrderStatus}</p>
-                {packageUriText}
+                {packagesText}
             </body>
         </html>";
     }
 
-    private static string GetPackageUriText(NotifyOrderUpdateStatusRequest request)
+    private static string GetPackageTemplate(NotifyOrderUpdateStatusRequest request)
     {
-        if(request.PackageUri != null)
-            return $"<p>Download your package <a href='{request.PackageUri}'>here</a>.</p>";
+        var response = "<p>Download your packages below</p>";
 
-        return $"";
+        foreach (var package in request.Packages)
+        {
+            response += $"<p>{package.FileName} <a href='{package.Uri}'>here</a>.</p>";
+        }
+
+        return response;
     }
 }
