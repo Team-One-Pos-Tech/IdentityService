@@ -3,6 +3,7 @@ using IdentityService.Api.Models;
 using IdentityService.Application.Contracts;
 using IdentityService.Application.Models;
 using IdentityService.Domain.Models.Gateways;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -25,6 +26,8 @@ public class AuthenticationController(
     /// <param name="user"></param>
     /// <returns>Action result indicating the outcome of the registration.</returns>
     [HttpPost("signup")]
+    [ProducesResponseType(typeof(RegisterClientResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> SignUp([FromBody] RegisterClientRequest user)
     {
         var signUpRequest = new SignUpRequest(
@@ -47,6 +50,8 @@ public class AuthenticationController(
     /// <param name="user">To sign in as an Anonymous User the CPF value should be empty</param>
     /// <returns>Action result indicating the outcome of the authentication</returns>
     [HttpPost("signin")]
+    [ProducesResponseType(typeof(SignInResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> SignIn([FromBody] LoginModel user)
     {
         var signInRequest = new SignInRequest(user.Cpf, DefaultUsersPassword);

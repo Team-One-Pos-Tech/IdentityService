@@ -10,12 +10,6 @@ public class SignInUseCase(IAuthService auth, IGetClientUseCase getClientUseCase
 {
     public async Task<SignInResponse> Execute(SignInRequest request)
     {
-        if (string.IsNullOrWhiteSpace(request.Username))
-        {
-            var authResponse = await auth.Execute(request);
-            return new SignInResponse(authResponse.IdToken);
-        }
-
         var client = await getClientUseCase.GetByCpf(request.Username);
 
         if (client == null)

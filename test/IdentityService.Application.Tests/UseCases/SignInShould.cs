@@ -81,40 +81,40 @@ namespace IdentityService.Application.Tests.UseCases
                 .Be("User not found");
         }
 
-        [Test]
-        public async Task Authenticate_Anonymous_User_When_Cpf_Is_Empty()
-        {
-            // Arrange
+        //[Test]
+        //public async Task Authenticate_Anonymous_User_When_Cpf_Is_Empty()
+        //{
+        //    // Arrange
 
-            var anonymousUsername = "00000000000";
+        //    var anonymousUsername = "00000000000";
 
-            mockSignInFunctionGateway
-                .Setup(gateway => gateway.Execute(It.IsAny<SignInRequest>()))
-                .ReturnsAsync(new AuthResponseType("token", true));
+        //    mockSignInFunctionGateway
+        //        .Setup(gateway => gateway.Execute(It.IsAny<SignInRequest>()))
+        //        .ReturnsAsync(new AuthResponseType("token", true));
 
-            var request = new SignInRequest("", "DefaultPassword");
+        //    var request = new SignInRequest("", "DefaultPassword");
 
-            // Act
+        //    // Act
 
-            SignInResponse response = await signInUseCase.Execute(request);
+        //    SignInResponse response = await signInUseCase.Execute(request);
 
-            // Assert
+        //    // Assert
 
-            mockSignInFunctionGateway.Verify(
-                gateway => gateway.
-                    Execute(It.Is<SignInRequest>(req => req.Username == "")),
-                Times.Once
-            );
+        //    mockSignInFunctionGateway.Verify(
+        //        gateway => gateway.
+        //            Execute(It.Is<SignInRequest>(req => req.Username == "")),
+        //        Times.Once
+        //    );
 
-            response
-                .Should()
-                .NotBeNull();
+        //    response
+        //        .Should()
+        //        .NotBeNull();
 
-            response
-                .IdToken
-                .Should()
-                .NotBeNull();
+        //    response
+        //        .IdToken
+        //        .Should()
+        //        .NotBeNull();
 
-        }
+        //}
     }
 }

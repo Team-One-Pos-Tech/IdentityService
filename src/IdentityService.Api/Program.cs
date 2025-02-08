@@ -15,6 +15,16 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                      .AllowAnyHeader();
+            });
+        });
+
         builder
             .Services
             .AddDatabaseContext(builder.Configuration)
@@ -35,6 +45,10 @@ public class Program
         // Configure the HTTP request pipeline.
         if (bool.TryParse(builder.Configuration.GetSection("https").Value, out var result) && result)
             app.UseHttpsRedirection();
+
+        // Use CORS middleware
+        app.UseCors("AllowAll");
+
         app.UseAuthorization();
         app.MapControllers();
         app.Run();
