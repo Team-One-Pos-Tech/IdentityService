@@ -1,25 +1,24 @@
-using IdentityService.Api.Configuration;
+using FrameUp.OrderService.Api.Configuration;
 using IdentityService.Domain.Contracts;
 using IdentityService.Infra.Services;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace IdentityService.Api.Extensions;
 
 public static class ServicesExtensions
 {
-    public static IServiceCollection AddServices(this IServiceCollection serviceCollection, IConfiguration configuration)
+    public static IServiceCollection AddServices(this IServiceCollection serviceCollection, Settings settings)
     {
         serviceCollection.AddScoped<IAuthService, JwtAuthService>();
 
-        AddEmailService(serviceCollection, configuration);
+        AddEmailService(serviceCollection, settings);
 
         return serviceCollection;
     }
 
-    private static void AddEmailService(IServiceCollection serviceCollection, IConfiguration configuration)
+    private static void AddEmailService(IServiceCollection serviceCollection, Settings settings)
     {
-        var emailSettings = configuration.GetSection("EmailService").Get<EmailServiceSettings>()!;
+        var emailSettings = settings.EmailService;
 
         serviceCollection.AddTransient<IEmailSender>(
             provider => new EmailSender(
