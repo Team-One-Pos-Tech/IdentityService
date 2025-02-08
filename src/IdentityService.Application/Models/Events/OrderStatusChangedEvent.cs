@@ -11,5 +11,7 @@ public record OrderStatusChangedEventParameters
 {
     public Guid OrderId { get; set; }
     public required string Status { get; set; }
-    public string? PackageUri { get; set; }
+    public PackageItemResponse[] Packages { get; set; } = [];
 }
+
+public record PackageItemResponse(string FileName, string Uri);

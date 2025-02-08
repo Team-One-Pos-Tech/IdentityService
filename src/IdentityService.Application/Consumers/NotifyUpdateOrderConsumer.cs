@@ -3,6 +3,7 @@ using IdentityService.Application.Models;
 using IdentityService.Application.Models.Events;
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IdentityService.Application.Consumers;
@@ -27,12 +28,18 @@ public class NotifyUpdateOrderConsumer(
             Email = user.Email,
             OrderId = context.Message.Parameters.OrderId,
             OrderStatus = context.Message.Parameters.Status,
-            PackageUri = context.Message.Parameters.PackageUri
+            Packages = GetPackages(context)
         });
 
         logger.LogInformation(
-            "User {UserId} notified for order {OrderId} status update", 
-            context.Message.OwnerId, 
+            "User {UserId} notified for order {OrderId} status update",
+            context.Message.OwnerId,
             context.Message.Parameters.OrderId);
+    }
+
+    private static PackageRequest[] GetPackages(ConsumeContext<OrderStatusChangedEvent> context)
+    {
+        return context.Message.Parameters.Packages
+            .Select(package => new PackageRequest(package.FileName, package.Uri)).ToArray();
     }
 }

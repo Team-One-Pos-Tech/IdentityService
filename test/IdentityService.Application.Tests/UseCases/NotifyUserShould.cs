@@ -27,7 +27,9 @@ internal class NotifyUserShould
             Email = "email@mail.com",
             OrderId = Guid.NewGuid(),
             OrderStatus = "Concluded",
-            PackageUri = "http://url.com",
+            Packages = [
+                new PackageRequest("package1", "http://url.com"),
+            ],
         };
 
         // Act
@@ -47,7 +49,9 @@ internal class NotifyUserShould
             Email = "email@mail.com",
             OrderId = Guid.NewGuid(),
             OrderStatus = "Concluded",
-            PackageUri = "http://url.com",
+            Packages = [
+                new PackageRequest("package1", "http://url.com"),
+            ],
         };
 
         // Act
@@ -67,7 +71,9 @@ internal class NotifyUserShould
             Email = "email@mail.com",
             OrderId = Guid.NewGuid(),
             OrderStatus = "Concluded",
-            PackageUri = "http://url.com",
+            Packages = [
+                new PackageRequest("package1", "http://url.com"),
+            ],
         };
 
         // Act
@@ -87,7 +93,9 @@ internal class NotifyUserShould
             Email = "email@mail.com",
             OrderId = Guid.NewGuid(),
             OrderStatus = "Concluded",
-            PackageUri = "http://url.com",
+            Packages = [
+                new PackageRequest("package1", "http://url.com"),
+            ],
         };
 
         // Act
@@ -95,6 +103,6 @@ internal class NotifyUserShould
 
         // Assert
         emailSenderMock.Verify(x => x.SendEmailAsync(
-            It.Is<SendEmailRequest>(rq => rq.Body.Contains(request.PackageUri))), Times.Once);
+            It.Is<SendEmailRequest>(rq => rq.Body.Contains(request.Packages.First().FileName))), Times.Once);
     }
 }
