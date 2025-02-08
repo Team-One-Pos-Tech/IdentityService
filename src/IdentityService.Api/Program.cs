@@ -1,5 +1,7 @@
+using FrameUp.OrderService.Api.Configuration;
 using IdentityService.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -10,6 +12,8 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        var settings = builder.Configuration.GetSection("Settings").Get<Settings>()!;
+        builder.Services.AddSingleton(settings);
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
@@ -27,11 +31,11 @@ public class Program
 
         builder
             .Services
-            .AddDatabaseContext(builder.Configuration)
+            .AddDatabaseContext(settings)
             .AddRepositories()
-            .AddMassTransit(builder.Configuration)
+            .AddMassTransit(settings)
             .AddUseCases()
-            .AddServices(builder.Configuration)
+            .AddServices(settings)
             .AddValidators();
 
         var app = builder.Build();
